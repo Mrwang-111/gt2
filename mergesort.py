@@ -1,7 +1,6 @@
 def ASSIGNMENT(new_list, i, old_list, j):
     new_list[i] = old_list[j]
 
-
 def mergeSort(list_to_sort_by_merge):
     if (
         len(list_to_sort_by_merge) > 1
@@ -38,14 +37,22 @@ def mergeSort(list_to_sort_by_merge):
             r += 1
             i += 1
 
-
 import matplotlib.pyplot as plt
 
 my_list = [54, 26, 93, 17, 77, 31, 44, 55, 20]
-x = range(len(my_list))
-plt.plot(x, my_list)
-plt.show()
-mergeSort(my_list)
-x = range(len(my_list))
-plt.plot(x, my_list)
+
+sorted_list = my_list.copy()
+mergeSort(sorted_list)
+
+plt.figure(figsize=(10, 5))
+
+plt.plot(my_list, label='Original List', marker='o', color='blue', linestyle='-')
+plt.plot(sorted_list, label='Sorted List', marker='s', color='red', linestyle='--')
+
+plt.title('Comparison of Original and Sorted Lists')
+plt.xlabel('Index')
+plt.ylabel('Value')
+plt.legend()
+
+plt.grid(True, linestyle='--', alpha=0.7)
 plt.show()
